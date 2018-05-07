@@ -30,9 +30,11 @@
   -->
 
 <resources>
-    <string name="app_name">MetaWear Android Starter</string>
+    <string name="app_name">Bote App</string>
     <string name="title_connecting">Connecting</string>
     <string name="title_reconnect_attempt">Reconnecting</string>
     <string name="message_wait">Please wait</string>
     <string name="action_disconnect">Disconnect</string>
+    <string name="action_led_switch">Switch</string>
+    <string name="title_activity_maps">Map</string>
 </resources>

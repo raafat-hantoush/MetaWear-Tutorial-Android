@@ -28,13 +28,23 @@
  * Should you have any questions regarding your right to use this Software,
  * contact MbientLab Inc, at www.mbientlab.com.
  */
+buildscript {
+    ext.kotlin_version = '1.1.1'  //Add this line
+    repositories {
+        jcenter()
+        google() // Gradle 4.0+
+        maven { url "https://maven.google.com" } // Gradle < 4.0
+    }
 
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.1.2'
+    }
+}
 apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
     buildToolsVersion rootProject.ext.buildToolsVersion
-
     defaultConfig {
         applicationId "com.mbientlab.metawear.tutorial.starter"
         minSdkVersion 18
@@ -53,11 +63,19 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
     }
 }
-
+repositories {
+    ivy {
+        url "https://mbientlab.com/releases/ivyrep"
+        layout "gradle"
+    }
+}
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.google.android.gms:play-services-maps:15.0.1'
+    implementation 'com.android.support:appcompat-v7:27.1.1'
     testImplementation 'junit:junit:4.12'
     implementation rootProject.ext.metawearSdk
+    compile 'com.mbientlab:metawear:3.4.0'
     implementation 'com.mbientlab.bletoolbox:scanner:0.2.3'
     implementation "com.android.support:appcompat-v7:$rootProject.ext.supportLibVersion"
     implementation "com.android.support:design:$rootProject.ext.supportLibVersion"

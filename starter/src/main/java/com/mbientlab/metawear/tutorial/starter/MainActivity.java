@@ -9,10 +9,13 @@ import android.content.ServiceConnection;
 import android.os.IBinder;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 
 import com.mbientlab.bletoolbox.scanner.BleScannerFragment;
 import com.mbientlab.metawear.MetaWearBoard;
 import com.mbientlab.metawear.android.BtleService;
+import com.mbientlab.metawear.module.Led;
 
 import java.util.UUID;
 
@@ -24,7 +27,6 @@ public class MainActivity extends AppCompatActivity implements BleScannerFragmen
 
     private BtleService.LocalBinder serviceBinder;
     private MetaWearBoard metawear;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -85,11 +87,17 @@ public class MainActivity extends AppCompatActivity implements BleScannerFragmen
 
                     return null;
                 });
+
+
+
     }
 
     @Override
     public void onServiceConnected(ComponentName name, IBinder service) {
         serviceBinder = (BtleService.LocalBinder) service;
+
+
+
     }
 
     @Override

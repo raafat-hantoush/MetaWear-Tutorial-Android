@@ -38,4 +38,9 @@
         android:orderInCategory="100"
         android:title="@string/action_disconnect"
         app:showAsAction="always" />
+    <item
+        android:id="@+id/led_switch"
+        android:orderInCategory="100"
+        android:title="@string/action_led_switch"
+        app:showAsAction="always" />
 </menu>
